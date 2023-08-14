@@ -1,11 +1,15 @@
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useAppDispatch } from "../store/store";
+import { addAuthUser } from "../store/features/userSlice";
 
 function Login() {
+  const dispatch = useAppDispatch();
   const [username, setUsername] = useState<String>("");
   const [password, setPassword] = useState<String>("");
+  const navigate = useNavigate();
 
   function validateUsername(username: String) {
     if (username !== "") {
@@ -28,9 +32,9 @@ function Login() {
         })
         .then((res) => {
           if (res.status == 200) {
-            localStorage.setItem("user", JSON.stringify(res.data));
-            var userJSON = JSON.parse(localStorage.getItem("user")!);
-            console.log(userJSON);
+            console.log(res.data);
+            dispatch(addAuthUser(res.data));
+            navigate("/");
           } else {
             console.log(res.data.message);
           }
