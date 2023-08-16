@@ -11,6 +11,8 @@ import axios from "axios";
 import Projects from "./components/Projects";
 import { useAppDispatch } from "./store/store";
 import { addAuthUser } from "./store/features/userSlice";
+import Logout from "./components/Logout";
+import Resume from "./components/Resume";
 
 function App() {
   checkAuth();
@@ -21,7 +23,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route
           path="/projects"
           element={<PrivateRoute component={<Projects />} />}

@@ -32,7 +32,6 @@ function Login() {
         })
         .then((res) => {
           if (res.status == 200) {
-            console.log(res.data);
             dispatch(addAuthUser(res.data));
             navigate("/");
           } else {

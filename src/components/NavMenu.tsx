@@ -1,23 +1,11 @@
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import GenericModal from "./GenericModal";
-import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { removeAuthUser } from "../store/features/userSlice";
-import axios from "axios";
+import { Container, Nav, Navbar, Button, NavDropdown } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../store/store";
 
 function NavMenu() {
   const currentUser = useAppSelector((state) => state.user.user);
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  async function handleLogout() {
-    const data = await (await axios.post("/logout")).data;
-    console.log(data);
-    setLoggingOut(true);
-    dispatch(removeAuthUser());
-  }
-
-  const [loggingOut, setLoggingOut] = useState<boolean>(false);
   return (
     <Navbar
       expand="lg"
@@ -40,27 +28,42 @@ function NavMenu() {
               About
             </Nav.Link>
             {currentUser.username != "" ? (
-              <Nav.Link as={Link} to="/projects" eventKey={3}>
-                Projects
-              </Nav.Link>
+              <NavDropdown title="Projects" id="basic-nav-dropdown">
+                <NavDropdown.Item as={Link} to="/projects">
+                  All Projects
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item as={Link} to="/expensify-app">
+                  Expensify App
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/complex-app">
+                  Complex App
+                </NavDropdown.Item>
+              </NavDropdown>
             ) : (
               ""
             )}
+            <Nav.Link as={Link} to="/resume" eventKey={3}>
+              Resume
+            </Nav.Link>
+            <Nav.Link as={Link} to="/contact" eventKey={4}>
+              Contact
+            </Nav.Link>
           </Nav>
           <hr className="text-white" />
           <Nav>
             {currentUser.username != "" ? (
-              <Nav.Item>
+              <Nav.Link as={Link} to="/login" eventKey={5}>
                 <Button
                   variant="outline-success"
                   size="lg"
-                  onClick={handleLogout}
+                  onClick={() => navigate("/logout")}
                 >
                   Logout
                 </Button>
-              </Nav.Item>
+              </Nav.Link>
             ) : (
-              <Nav.Link as={Link} to="/login" eventKey={4}>
+              <Nav.Link as={Link} to="/login" eventKey={6}>
                 <Button variant="outline-success" size="lg">
                   Login
                 </Button>
@@ -69,13 +72,6 @@ function NavMenu() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      {loggingOut && (
-        <GenericModal
-          header="Logged out"
-          bodyMessage="You have successfully logged out! You will be redirected to the home page"
-          hasFooter={false}
-        />
-      )}
     </Navbar>
   );
 }
