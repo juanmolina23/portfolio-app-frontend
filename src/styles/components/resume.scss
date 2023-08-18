@@ -1,0 +1,49 @@
+.pagination{
+    span{
+        background-color: $purple !important;
+        color: white !important;
+    }
+
+    a{
+        color: $purple !important;
+    }
+}
+
+.download-icon{
+    width: 90px;
+    height: 90px;
+    transition: 0.5s;
+    margin-left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.download-icon:hover{
+    width: 100px;
+    height: 100px;
+    transition-timing-function: ease;
+}
+
+@media(max-width: 500px) {
+    .download-icon{
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        transition-timing-function: ease;
+    }
+    .download-icon:hover{
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        transition-timing-function: ease;
+    }
+
+    .pagination-lg{
+        --bs-pagination-padding-x: 1rem;
+        --bs-pagination-padding-y: 0.50rem;
+        --bs-pagination-font-size: 1rem;
+        --bs-pagination-border-radius: var(--bs-border-radius-sm);
+        transition-timing-function: ease;
+    }
+
+}

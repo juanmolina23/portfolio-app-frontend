@@ -1,0 +1,17 @@
+.dropdown{
+    .dropdown-toggle{
+        color: white;
+    }
+    .nav-link.show{
+        color: white;
+    }
+}
+.dropdown-menu{
+    background-color: $purple;
+
+    .dropdown-item:hover{
+        color: white;
+        background-color: $purple;
+        text-decoration: underline white;
+    }
+}

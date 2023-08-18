@@ -1,14 +1,14 @@
 import { Container } from "react-bootstrap";
 
-function Projects() {
+function ComplexApp() {
   return (
     <Container
       fluid
       className="appContainer d-flex justify-content-center align-items-center"
     >
-      <h1>Projects Page</h1>
+      <h1>Complex App</h1>
     </Container>
   );
 }
 
-export default Projects;
+export default ComplexApp;

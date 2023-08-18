@@ -1,0 +1,34 @@
+.purple-btn{
+    border-color: $purple !important;
+    background-color: white !important;
+    border-width: 2px !important;
+    color: #6E07F3 !important;
+}
+
+.purple-btn:hover{
+    background-color: $purple !important;
+    color: white !important;
+}
+
+.purple-btn-outline{
+    background-color: $purple !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+.purple-btn-outline:hover{
+    background-color: white !important;
+    color: $purple !important;
+
+}
+
+.mint-btn-outline{
+    border: 2px solid $mint !important;
+    color: white !important;
+
+}
+.mint-btn-outline:hover{
+    background-color: $mint !important;
+    color: $dark-blue !important;
+
+}

@@ -2,9 +2,9 @@ import { Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <Container fluid data-bs-theme="dark" className="bg-body-tertiary">
+    <Container fluid className="px-0 purple-bg-color" id="footer">
       <footer className="py-3 mt-auto">
-        <Nav className="nav justify-content-center border-bottom pb-3 mb-3">
+        <Nav className="nav justify-content-center pb-3 mb-3">
           <Nav.Item>
             <Nav.Link
               as={Link}
@@ -34,7 +34,7 @@ function Footer() {
           </Nav.Item>
         </Nav>
 
-        <p className="text-center text-body-secondary">
+        <p className="text-center ">
           <i className="fa-regular fa-copyright"></i> Juan Molina Dev 2023
         </p>
       </footer>
