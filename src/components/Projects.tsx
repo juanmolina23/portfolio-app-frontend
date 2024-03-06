@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Project from "./Project";
+import ExpensifyImg from "../assets/expensify.jpg";
 
 function Projects() {
   return (
@@ -12,21 +13,21 @@ function Projects() {
         <Row className=''>
           <Col lg={4} md={4} sm={6}>
             <Project
-              projectImg='src/assets/expensify.jpg'
+              projectImg={ExpensifyImg}
               projectUrl=''
               projectDesc='Expensify App!'
             />
           </Col>
           <Col lg={4} md={4} sm={6}>
             <Project
-              projectImg='src/assets/expensify.jpg'
+              projectImg={ExpensifyImg}
               projectUrl=''
               projectDesc='Complex App!'
             />
           </Col>
           <Col lg={4} md={4} sm={6}>
             <Project
-              projectImg='src/assets/expensify.jpg'
+              projectImg={ExpensifyImg}
               projectUrl=''
               projectDesc='Complex App!'
             />
