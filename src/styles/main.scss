@@ -1,12 +1,23 @@
+//Library imports
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import "bootstrap/scss/bootstrap";
 
+//Variable Declarations (MUST COME FIRST)
 @import './components/custom.scss';
+
+//Custom imports
+@import './components/backgrounds.scss';
 @import './components/buttons.scss';
-@import './components/resume.scss';
+
+
+//Component imports
+@import './components/callToAction.scss';
+@import './components/footer.scss';
 @import './components/home.scss';
-@import './components/text.scss';
 @import './components/nav-menu.scss';
+@import './components/projects.scss';
+@import './components/skills.scss';
+@import './components/text.scss';
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -20,21 +31,6 @@ body{
     margin-bottom: 3rem;
 }
 
-.icon-bg{
-    background-color: $mint !important;
-    width: 75px !important;
-    height: 75px !important;
-    i{
-        text-align: center !important;
-        margin: auto !important;
-    }
-}
-
-.purple-bg-color{
-    background-color: $purple !important;
-    color: white !important;
-}
-
-footer .nav-link, footer p{
-    color: white !important;
+section#home, section#about-me, section#skills, section#projects {
+    padding-top: 100px !important;
 }

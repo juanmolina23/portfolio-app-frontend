@@ -10,6 +10,12 @@
     color: white !important;
 }
 
+.purple-btn-solid{
+    border-color: $purple !important;
+    background-color: $purple !important;
+    color: white !important;
+}
+
 .purple-btn-outline{
     background-color: $purple !important;
     color: white !important;
@@ -19,16 +25,26 @@
 .purple-btn-outline:hover{
     background-color: white !important;
     color: $purple !important;
-
 }
 
-.mint-btn-outline{
+.purple-btn-outline-reverse{
+    background-color: $purple !important;
+    color: #fff !important;
+    border: 2px solid $purple !important;
+}
+
+.purple-btn-outline-reverse:hover{
+    background-color: #fff !important;
+    color: $purple !important;
+    border: 2px solid $purple !important;
+}
+
+.btn-mint-outline{
     border: 2px solid $mint !important;
     color: white !important;
-
 }
-.mint-btn-outline:hover{
+
+.btn-mint-outline:hover{
     background-color: $mint !important;
     color: $dark-blue !important;
-
 }

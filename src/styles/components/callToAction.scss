@@ -1,0 +1,14 @@
+#callToAction{
+    width: 100%;
+    height: 80px;
+    background-color: $purple;
+    margin-top: 100px;
+
+    .box{
+        background-color: $dark-blue;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        bottom: 120px;
+        min-height: 250px;
+    }
+}

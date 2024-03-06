@@ -1,0 +1,31 @@
+#projects{
+    position: relative !important; 
+    bottom: 150px !important;
+  }
+
+  .card-container{
+    transition: all 0.2s ease-in-out;
+  
+    img.darker {
+      transition: all 0.2s ease-in-out;
+    }
+  
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease-in-out;
+      opacity: 0;
+    }
+  
+  }
+  
+  .card-container:hover{
+    .centered{
+      opacity: 1;
+    }
+    img.darker {
+      filter: brightness(50%);
+    }
+  }

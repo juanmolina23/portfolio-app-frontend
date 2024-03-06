@@ -11,19 +11,15 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@reduxjs/toolkit": "^1.9.5",
-    "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.2",
+    "react-pdf": "^7.7.1",
     "react-router-dom": "^6.15.0",
-    "sass": "^1.65.1",
-    "typescript-cookie": "^1.0.6"
+    "sass": "^1.65.1"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.3",
     "@types/node": "^20.5.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -33,7 +29,6 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "js-cookie": "^3.0.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }

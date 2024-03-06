@@ -1,107 +1,160 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-//import { useAppSelector } from "../store/store";
-import logo from "../assets/new_logo_white.png";
-import { useState } from "react";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import resume from "../assets/SWE_Juan_Molina_Resume.pdf";
+import purpleLogo from "../assets/new_logo_purple.png";
+import whiteLogo from "../assets/new_logo_white.png";
+
+import { useEffect, useState } from "react";
 
 function NavMenu() {
-  //const currentUser = useAppSelector((state) => state.user.user);
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
-  return (
-    <Navbar
-      fixed="top"
-      expand="lg"
-      expanded={expanded}
-      className="purple-bg-color"
-      collapseOnSelect
-    >
-      <Container className="purple-bg-color">
-        <Navbar.Brand
-          as={Link}
-          to="/"
-          className="text-white"
-          style={{ width: "200px", height: "auto" }}
-        >
-          <img src={logo} className="img-fluid" alt="..." />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          onClick={() => setExpanded(true)}
-        />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link
-              as={Link}
-              to="/"
-              className="text-white"
-              onClick={() => setExpanded(false)}
-            >
-              Home
-            </Nav.Link>
-            <NavDropdown
-              title="Projects"
-              id="collasible-nav-dropdown"
-              className="text-white text-decoration-none"
-            >
-              <NavDropdown.Item
+  function handleNavChange(link: string) {
+    setExpanded(false);
+    //window.scrollTo(0, 0);
+    navigate(link);
+  }
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  if (width > 991) {
+    return (
+      <Navbar
+        fixed='top'
+        expand='lg'
+        expanded={expanded}
+        className='bg-white'
+        collapseOnSelect
+        id='main-navbar'
+      >
+        <Container className='bg-white'>
+          <Navbar.Brand
+            as={Link}
+            to='/'
+            reloadDocument={true}
+            className='text-purple'
+            style={{ width: "200px", height: "auto" }}
+          >
+            <img src={purpleLogo} className='img-fluid' alt='...' />
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls='basic-navbar-nav'
+            onClick={() => setExpanded((prev) => !prev)}
+          />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto'>
+              <Nav.Link
                 as={Link}
-                to="/projects"
-                className="text-white"
+                to='/'
+                reloadDocument={true}
+                className='text-purple lead'
                 onClick={() => setExpanded(false)}
               >
-                All Projects
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/projects/expensify-app"
-                className="text-white"
+                Home
+              </Nav.Link>
+              <Nav.Link
+                href='/#about-me'
+                className='text-purple lead'
+                onClick={() => handleNavChange("/#about-me")}
+              >
+                About Me
+              </Nav.Link>
+              <Nav.Link
+                href='/#projects'
+                className='text-purple lead'
+                onClick={() => handleNavChange("/#projects")}
+              >
+                Projects
+              </Nav.Link>
+            </Nav>
+            <hr className='text-purple lead' />
+            <Nav>
+              <Button
+                href={resume}
+                target='_blank'
+                className='btn btn-lg purple-btn-outline-reverse rounded-pill px-4'
                 onClick={() => setExpanded(false)}
               >
-                Expensify App
-              </NavDropdown.Item>
-              <NavDropdown.Item
+                Download Resume
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    );
+  } else {
+    return (
+      <Navbar
+        fixed='top'
+        expand='lg'
+        expanded={expanded}
+        className='purple-bg-color'
+        collapseOnSelect
+        id='main-navbar'
+        variant='dark'
+      >
+        <Container className='purple-bg-color'>
+          <Navbar.Brand
+            as={Link}
+            to='/'
+            reloadDocument={true}
+            className='text-purple'
+            style={{ width: "200px", height: "auto" }}
+          >
+            <img src={whiteLogo} className='img-fluid' alt='...' />
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls='basic-navbar-nav'
+            onClick={() => setExpanded((prev) => !prev)}
+          />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto'>
+              <Nav.Link
                 as={Link}
-                to="/projects/complex-app"
-                className="text-white"
+                to='/'
+                reloadDocument={true}
+                className='text-white lead'
                 onClick={() => setExpanded(false)}
               >
-                Complex App
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link
-              as={Link}
-              to="/resume"
-              className="text-white"
-              onClick={() => setExpanded(false)}
-            >
-              Resume
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/contact"
-              className="text-white"
-              onClick={() => setExpanded(false)}
-            >
-              Contact
-            </Nav.Link>
-          </Nav>
-          <hr className="text-white" />
-          <Nav>
-            <Nav.Link
-              as={Link}
-              to="/contact"
-              className="btn btn-lg purple-btn-outline rounded-pill px-4"
-              onClick={() => setExpanded(false)}
-            >
-              Say Hello
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+                Home
+              </Nav.Link>
+              <Nav.Link
+                href='/#about-me'
+                className='text-white lead'
+                onClick={() => handleNavChange("/#about-me")}
+              >
+                About Me
+              </Nav.Link>
+              <Nav.Link
+                href='/#projects'
+                className='text-white lead'
+                onClick={() => handleNavChange("/#projects")}
+              >
+                Projects
+              </Nav.Link>
+            </Nav>
+            <hr className='text-white lead' />
+            <Nav>
+              <Button
+                href={resume}
+                target='_blank'
+                className='btn btn-lg purple-btn-outline rounded-pill px-4'
+                onClick={() => setExpanded(false)}
+              >
+                Download Resume
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    );
+  }
 }
 
 export default NavMenu;
